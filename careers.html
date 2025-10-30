@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Welcome to Zazu Technologies</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/LOGO (2) - Copy.png" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- Add Custom CSS -->
+    <style>
+        .project-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .project-item img {
+            transition: transform 0.5s ease;
+        }
+
+        .project-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(53, 94, 252, 0.6);
+            opacity: 0;
+            transition: 0.5s;
+        }
+
+        .project-item:hover .project-overlay {
+            opacity: 1;
+        }
+    </style>
+    <!-- ✅ Custom CSS -->
+    <style>
+        /* ==============================
+       Shared Section Styling
+    ============================== */
+        .slider-section {
+            background: linear-gradient(90deg, #c8f0ff 0%, #e0e8ff 50%, #e4d7ff 100%);
+            padding: 60px 0;
+        }
+
+        .slider-title p {
+            border: 1px solid #ffffff !important;
+            background-color: #ffffff;
+        }
+
+        /* ==============================
+       Logo Card Styling
+    ============================== */
+        .logo-card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+            padding: 25px 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .logo-card img {
+            max-height: 60px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        /* Hover Effects */
+        .logo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .logo-card:hover img {
+            transform: scale(1.05);
+        }
+
+        /* ==============================
+       Responsive Adjustments
+    ============================== */
+        @media (max-width: 991.98px) {
+            .slider-section {
+                padding: 50px 20px;
+            }
+
+            .logo-card {
+                padding: 20px 30px;
+            }
+
+            .logo-card img {
+                max-height: 70px;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .slider-section {
+                padding: 40px 10px;
+            }
+
+            .logo-card {
+                padding: 18px 25px;
+                margin: 0 10px;
+            }
+
+            .logo-card img {
+                max-height: 80px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-card {
+                padding: 15px 20px;
+                border-radius: 10px;
+            }
+
+            .logo-card img {
+                max-height: 85px;
+            }
+        }
+    </style>
+
+    <!-- Highlight Section -->
+    <style>
+        /* ==========================
+                Highlight Box Styling
+                ========================== */
+        .highlight-box {
+            background: #fff;
+            border-radius: 15px;
+            padding: 40px 30px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Hover glow */
+        .highlight-box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(53, 94, 252, 0.2);
+            border: 1px solid rgba(53, 94, 252, 0.3);
+        }
+
+        /* Background glow effect */
+        .highlight-box::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(53, 94, 252, 0.08), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 0;
+        }
+
+        .highlight-box:hover::before {
+            opacity: 1;
+        }
+
+        .highlight-box .d-flex {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Icon Circle */
+        .highlight-box .btn-lg-square {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #355efc, #1d3ddb);
+            color: #fff;
+            font-size: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 4px 12px rgba(53, 94, 252, 0.4);
+            transition: transform 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Auto icon animation */
+        .highlight-box .btn-lg-square i {
+            animation: pulseRotate 2.5s infinite ease-in-out;
+        }
+
+        /* Rotate + Pulse animation */
+        @keyframes pulseRotate {
+            0% {
+                transform: scale(1) rotate(0deg);
+                color: #f2ff00;
+                opacity: 1;
+            }
+
+            25% {
+                transform: scale(1.15) rotate(5deg);
+                color: #ffffff;
+                opacity: 0.9;
+            }
+
+            50% {
+                transform: scale(1) rotate(0deg);
+                color: #f2ff00;
+                opacity: 1;
+            }
+
+            75% {
+                transform: scale(1.15) rotate(-5deg);
+                color: #ffffff;
+                opacity: 0.9;
+            }
+
+            100% {
+                transform: scale(1) rotate(0deg);
+                color: #f2ff00;
+                opacity: 1;
+            }
+        }
+
+        /* Enhance effect on hover */
+        .highlight-box:hover .btn-lg-square {
+            transform: scale(1.15);
+        }
+
+        /* Text Styling */
+        .highlight-box h4 {
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 5px;
+        }
+
+        .highlight-box span {
+            font-size: 15px;
+            color: #555;
+        }
+
+        /* Responsive */
+        @media (max-width: 991.98px) {
+            .highlight-box {
+                padding: 30px 20px;
+            }
+
+            .highlight-box .btn-lg-square {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+
+            .highlight-box h4 {
+                font-size: 18px;
+            }
+
+            .highlight-box span {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .highlight-box {
+                padding: 25px 15px;
+            }
+
+            .highlight-box .btn-lg-square {
+                width: 45px;
+                height: 45px;
+            }
+
+            .highlight-box h4 {
+                font-size: 16px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
+    </div>
+    <!-- Spinner End -->
+
+    <div class="container-fluid fixed-top px-0">
+
+        <!-- Top Bar -->
+        <div class="top-bar row gx-0 align-items-center d-none d-lg-flex">
+            <div class="col-lg-6 px-5 text-start">
+                <small><i class="fa fa-map-marker-alt text-primary me-2"></i>89, NGN St, Siddhapudur, New Siddhapudur,
+                    Coimbatore.</small>
+                <small class="ms-4"><i class="fa fa-clock text-primary me-2"></i>9.00 am - 9.00 pm</small>
+            </div>
+            <div class="col-lg-6 px-5 text-end">
+                <small><i class="fa fa-envelope text-primary me-2"></i>
+                    <a href="mailto:info@zazutech.in" class="text-primary text-decoration-none">info@zazutech.in</a>
+                </small>
+                <small class="ms-4"><i class="fa fa-phone-alt text-primary me-2"></i>
+                    <a href="tel:+919843031201" class="text-primary text-decoration-none">+91 98430 31201</a>
+                </small>
+            </div>
+        </div>
+
+        <!-- Navbar -->
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light py-lg-0">
+                <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
+                    <img src="img/logo.png" alt="logo" class="img-fluid" style="height:45px;">
+                </a>
+                <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto p-4 p-lg-0">
+                        <a href="index.html" class="nav-item nav-link ">Home</a>
+                        <a href="about.html" class="nav-item nav-link">About</a>
+                        <a href="service.html" class="nav-item nav-link">Services</a>
+
+                        <!-- Mega Menu Start -->
+                        <div class="nav-item dropdown position-static">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Product</a>
+                            <div class="dropdown-menu w-100 mt-0 border-0 rounded-0 shadow p-4 mega-menu">
+                                <div class="row g-4">
+                                    <!-- Column 1 -->
+                                    <div class="col-lg-3 col-md-6">
+                                        <h6 class="mb-3">Aviation, Aerospace & Defense</h6>
+                                        <a href="#" class="dropdown-item">Maintenance, Repair and Overhaul</a>
+                                        <a href="#" class="dropdown-item">Engine MRO</a>
+                                        <a href="#" class="dropdown-item">Maintenance & Engineering</a>
+                                        <a href="#" class="dropdown-item">Defense Asset Management</a>
+                                        <a href="#" class="dropdown-item">Flight Operations</a>
+                                        <a href="#" class="dropdown-item">Fleet Technical Management</a>
+                                    </div>
+
+                                    <!-- Column 2 -->
+                                    <div class="col-lg-3 col-md-6">
+                                        <h6 class="mb-3">ERP</h6>
+                                        <a href="#" class="dropdown-item">Enterprise Asset Management</a>
+                                        <a href="#" class="dropdown-item">Production</a>
+                                        <a href="#" class="dropdown-item">Finance</a>
+                                        <a href="#" class="dropdown-item">Supply Chain Management</a>
+                                        <a href="#" class="dropdown-item">Project Management</a>
+                                        <a href="#" class="dropdown-item">Facility Management</a>
+                                    </div>
+
+                                    <!-- Column 3 -->
+                                    <div class="col-lg-3 col-md-6">
+                                        <h6 class="mb-3">Payce – Global Payroll</h6>
+                                        <a href="#" class="dropdown-item">Daily HR</a>
+                                        <a href="#" class="dropdown-item">Payroll Workspace</a>
+                                        <a href="#" class="dropdown-item">Managed Services</a>
+                                        <a href="#" class="dropdown-item">BInGO</a>
+                                        <a href="#" class="dropdown-item">Chia AI Assistant</a>
+                                    </div>
+
+                                    <!-- Column 4 -->
+                                    <div class="col-lg-3 col-md-6">
+                                        <h6 class="mb-3">Logistics Software</h6>
+                                        <a href="#" class="dropdown-item">Transport Management (TMS)</a>
+                                        <a href="#" class="dropdown-item">Warehouse Management (WMS)</a>
+                                        <a href="#" class="dropdown-item">Fleet Management</a>
+                                        <a href="#" class="dropdown-item">Finance & Accounting</a>
+                                        <a href="#" class="dropdown-item">Hub Management</a>
+                                        <a href="#" class="dropdown-item">Rating & Billing</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Mega Menu End -->
+
+                        <a href="careers.html" class="nav-item nav-link active">Careers</a>
+                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    </div>
+
+                    <!-- Social Icons -->
+                    <div class="d-none d-lg-flex ms-2">
+                        <a class="btn btn-light btn-sm-square rounded-circle ms-3" href="#">
+                            <small class="fab fa-facebook-f text-primary"></small>
+                        </a>
+                        <a class="btn btn-light btn-sm-square rounded-circle ms-3" href="#">
+                            <small class="fab fa-twitter text-primary"></small>
+                        </a>
+                        <a class="btn btn-light btn-sm-square rounded-circle ms-3" href="#">
+                            <small class="fab fa-linkedin-in text-primary"></small>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <h1 class="display-3 mb-4 animated slideInDown">Careers</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Careers</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+
+    <!-- Career Intro -->
+    <div class="container-xxl">
+        <div class="container text-center">
+            <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3">Join Our Team</p>
+            <h1 class="display-6 mb-4">Build Your Future with Zazu Technologies</h1>
+            <p class="mb-5">We’re always looking for talented, passionate, and creative individuals who are ready to
+                make an impact. Explore our openings or submit your resume to join our growing team.</p>
+        </div>
+    </div>
+
+    <!-- Job Openings -->
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="border rounded p-4 h-100">
+                    <h5 class="fw-bold">Frontend Developer</h5>
+                    <p class="text-muted mb-2"><i class="fa fa-map-marker-alt me-2 text-primary"></i>Coimbatore, India
+                    </p>
+                    <p>Experience: 1–3 years<br>Skills: HTML, CSS, JavaScript, Bootstrap</p>
+                </div>
+            </div>
+            <div class="col-md-4 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="border rounded p-4 h-100">
+                    <h5 class="fw-bold">PHP / CodeIgniter Developer</h5>
+                    <p class="text-muted mb-2"><i class="fa fa-map-marker-alt me-2 text-primary"></i>Coimbatore, India
+                    </p>
+                    <p>Experience: 2–4 years<br>Skills: PHP, CodeIgniter, MySQL, AJAX</p>
+                </div>
+            </div>
+            <div class="col-md-4 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="border rounded p-4 h-100">
+                    <h5 class="fw-bold">UI/UX Designer</h5>
+                    <p class="text-muted mb-2"><i class="fa fa-map-marker-alt me-2 text-primary"></i>Remote / On-site
+                    </p>
+                    <p>Experience: 1–3 years<br>Skills: Figma, Adobe XD, Responsive Design</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Apply Form -->
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <p class="d-inline-block border rounded text-primary fw-semi-bold py-1 px-3">Apply Now</p>
+            <h2 class="display-6">Submit Your Application</h2>
+        </div>
+        <form action="mail.php" method="post" enctype="multipart/form-data" class="wow fadeInUp" data-wow-delay="0.1s" id="apply_form">
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+                        <label for="name">Your Name</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Your Email"
+                            required>
+                        <label for="email">Your Email</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone Number"
+                            required>
+                        <label for="phone">Phone Number</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="position" name="subject"
+                            placeholder="Position Applied For" required>
+                        <label for="position">Position Applied For</label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <label class="form-label">Upload Resume (PDF/DOC)</label>
+                    <input class="form-control" type="file" name="resume" accept=".pdf,.doc,.docx" required>
+                </div>
+                <div class="col-12">
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Message" id="message" name="message"
+                            style="height: 120px"></textarea>
+                        <label for="message">Message (Optional)</label>
+                    </div>
+                </div>
+                <div class="col-12 text-center">
+                    <button class="btn btn-primary py-3 px-5" name="send" type="submit">Submit Application</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer py-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-4">Our Office</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>89, NGN St, Siddhapudur, New
+                        Siddhapudur,
+                        Coimbatore.</p>
+                    <p class="mb-2">
+                        <i class="fa fa-phone-alt me-2 text-white"></i>
+                        <a href="tel:+919843031201" class="text-white text-decoration-none">+91 98430 31201</a>
+                    </p>
+                    <p class="mb-2">
+                        <i class="fa fa-envelope me-2 text-white"></i>
+                        <a href="mailto:info@zazutech.in" class="text-white text-decoration-none">info@zazutech.in</a>
+                    </p>
+
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-square btn-outline-light rounded-circle me-2" href=""><i
+                                class="fab fa-twitter"></i></a>
+                        <a class="btn btn-square btn-outline-light rounded-circle me-2" href=""><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-square btn-outline-light rounded-circle me-2" href=""><i
+                                class="fab fa-youtube"></i></a>
+                        <a class="btn btn-square btn-outline-light rounded-circle me-2" href=""><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-4">Services</h4>
+                    <a class="btn btn-link" href="">Custom Software Development</a>
+                    <a class="btn btn-link" href="">Web Application Development</a>
+                    <a class="btn btn-link" href="">Website Design & Development</a>
+                    <a class="btn btn-link" href="">SEO Optimization</a>
+                    <a class="btn btn-link" href="">ERP & CRM Solutions</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-4">Quick Links</h4>
+                    <a class="btn btn-link" href="about.html">About Us</a>
+                    <a class="btn btn-link" href="contact.html">Contact Us</a>
+                    <a class="btn btn-link" href="service.html">Our Services</a>
+                    <a class="btn btn-link" href="careers.html">Careers</a>
+                    <a class="btn btn-link" href="terms-conditions.html">Terms & Condition</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-4">Join Our Tech Community</h4>
+                    <p>Get the latest IT updates and insights in your inbox.</p>
+
+
+                    <div class="position-relative w-100">
+                        <form action="" method="post">
+                            <input class="form-control bg-white border-0 w-100 py-3 ps-4 pe-5" type="email"
+                                placeholder="Your email">
+                            <button type="submit"
+                                class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    &copy; 2025 <a class="border-bottom" href="#">Zazu Technologies</a>, All Right Reserved.
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    Designed By <a class="border-bottom" href="https://zazutech.in/">Zazu Technologies</a> Development
+                    By
+                    <a href="https://zazutech.in/">Developer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
+            class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <!-- Owl Carousel JS Initialization -->
+
+
+    <script>
+        $(document).ready(function () {
+            $(".logo-carousel").owlCarousel({
+                loop: true,
+                margin: 40,
+                autoplay: true,
+                autoplayTimeout: 2000,
+                autoplaySpeed: 1200,
+                autoplayHoverPause: false,
+                smartSpeed: 800,
+                dots: false,
+                nav: false,
+                responsive: {
+                    0: { items: 2 },
+                    576: { items: 3 },
+                    768: { items: 4 },
+                    992: { items: 5 },
+                    1200: { items: 6 }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
