@@ -15,16 +15,17 @@ if (isset($_POST["send"])) {
         // SMTP SERVER CONFIGURATION
         // =========================
         $mail->isSMTP();
-        $mail->Host       = 'smtp.hostinger.com';
-        $mail->SMTPAuth   = true;
-        $mail->Username   = 'admin@uniquecollege.in';  // Your email
-        $mail->Password   = '2025@uniquE';             // Your password
+        $mail->Host = 'smtp.hostinger.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'naveen@zazutech.in';  // Your email
+        $mail->Password = 'Naveen$2025';             // Your password
         $mail->SMTPSecure = 'ssl';
-        $mail->Port       = 465;
+        $mail->Port = 465;
 
         // Sender
-        $mail->setFrom('admin@uniquecollege.in', 'Zazu Technologies');
-        $mail->addAddress('admin@uniquecollege.in'); // Receiver
+        $mail->setFrom('naveen@zazutech.in', 'Zazu Technologies');
+        $mail->addAddress('info@zazutech.in'); // Receiver
+        $mail->addCC('tamil@zazutech.in'); 
         $mail->addReplyTo($_POST["email"], $_POST["name"]);
 
         // Check which form was submitted
@@ -33,17 +34,17 @@ if (isset($_POST["send"])) {
             // CAREER FORM PROCESSING
             // =============================
 
-            $name     = htmlspecialchars($_POST["name"]);
-            $email    = htmlspecialchars($_POST["email"]);
-            $phone    = htmlspecialchars($_POST["phone"]);
+            $name = htmlspecialchars($_POST["name"]);
+            $email = htmlspecialchars($_POST["email"]);
+            $phone = htmlspecialchars($_POST["phone"]);
             $position = htmlspecialchars($_POST["subject"]);
-            $message  = nl2br(htmlspecialchars($_POST["message"]));
+            $message = nl2br(htmlspecialchars($_POST["message"]));
 
             // Attach resume
             $fileTmpPath = $_FILES['resume']['tmp_name'];
-            $fileName    = $_FILES['resume']['name'];
-            $fileExt     = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
-            $allowedExt  = ['pdf', 'doc', 'docx'];
+            $fileName = $_FILES['resume']['name'];
+            $fileExt = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+            $allowedExt = ['pdf', 'doc', 'docx'];
 
             if (in_array($fileExt, $allowedExt)) {
                 $mail->addAttachment($fileTmpPath, $fileName);
@@ -75,10 +76,10 @@ if (isset($_POST["send"])) {
             // CONTACT FORM PROCESSING
             // =============================
 
-            $name     = htmlspecialchars($_POST["name"]);
-            $email    = htmlspecialchars($_POST["email"]);
-            $subject  = htmlspecialchars($_POST["subject"]);
-            $message  = nl2br(htmlspecialchars($_POST["message"]));
+            $name = htmlspecialchars($_POST["name"]);
+            $email = htmlspecialchars($_POST["email"]);
+            $subject = htmlspecialchars($_POST["subject"]);
+            $message = nl2br(htmlspecialchars($_POST["message"]));
 
             // Email content for contact form
             $mail->isHTML(true);
